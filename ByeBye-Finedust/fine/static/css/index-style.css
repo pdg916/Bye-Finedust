@@ -1,0 +1,295 @@
+.line:link {
+    color: #000000;
+    text-decoration: none;
+}
+.line:visited {
+    color: #000000;
+    text-decoration: none;
+}
+.line:hover {
+    color: #78cb19;
+    text-decoration: none;
+}
+.lungsu{
+    float:left;
+    position:relative;
+    top:20px;
+    margin-left:30px;
+    width:200px;
+    height:300px;
+    border: 2px solid #000000;
+    border-radius:20px; 
+    transform: rotate(180deg);
+}
+.a{
+    position:relative;
+    bottom:0px;
+}
+.lungsf{
+    
+    float:left;
+    margin-left:10px;
+    position:relative;
+    top:20px;
+    width:200px;
+    height:300px;
+    border: 2px solid #000000;
+    border-radius:20px;
+    transform: rotate(180deg);
+}
+.drinku{
+    background-color:#424242;
+    width:200px;
+    position:relative;
+    bottom:19px;
+    
+}
+.drinkf{
+    background-color:#424242;
+    width:200px;
+    position:relative;
+    bottom:19px;
+}
+#banner {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background: #000;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#banner::before {
+    content: '';
+    position: absolute;
+    background: #04acff;
+    width: 100%;
+    bottom: 0;
+    animation: wipe 5s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+}
+@keyframes wipe {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+.copyright{
+    margin-bottom:1px;
+}
+.de {
+}
+.helper {
+}
+.copyright {
+    float:bottom;
+    margin-bottom: 0px;
+}
+div {
+    overflow: hidden;
+    height: auto;
+}
+.logobox {
+    padding-bottom: 100%;
+    float: left;
+    height: 110px;
+    width: 500px;
+    padding: 2px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 2px solid #78cb19;
+}
+
+.form {
+    display: inline;
+    width: 120px;
+}
+.printdust {
+    padding-bottom: 100%;
+    height: 110px;
+    width: 975px;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 2px solid #78cb19;
+}
+.lungsdust {
+    padding-bottom: 100%;
+    float: left;
+    height: 400px;
+    width: 1000px;
+    padding: 2px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 2px solid #78cb19;
+}
+.imglungs {
+    padding-bottom: 100%;
+    height: 400px;
+    width: 475px;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 2px solid #78cb19;
+}
+.curedust {
+    padding-bottom: 100%;
+    float: left;
+    min-height: 170px;
+    width: 1000px;
+    padding: 2px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 2px solid #78cb19;
+}
+.developers {
+    padding-bottom: 100%;
+    min-height: 170px;
+    width: 475px;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 2px solid #78cb19;
+}
+.cureyou {
+    color: #424242;
+}
+#vi {
+    float: right;
+}
+.checkdust {
+    float: right;
+}
+img {
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+}
+.footer {
+    margin-bottom: 0px;
+}
+.logobox:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+.printdust:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+.lungsdust:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+.imglungs:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+.curedust:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+.developers:hover {
+    box-shadow: 5px 5px #a8f552;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+#city {
+    height: 23px;
+    border: 1px solid #78cb19;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+#incheon-select {
+    
+    
+    border: 1px solid #78cb19;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+button {
+    height: 23px;
+    background-color: white;
+    border: 1px solid #78cb19;
+    border-radius: 10px;
+    margin-bottom: 3px;
+}
+.button:hover {
+    background-color: #78cb19;
+}
+@media (min-width: 1920px) {
+    .logobox {
+        height: 15vh;
+        width: 70vh;
+    }
+    .printdust {
+        height: 15vh;
+        width: 115vh;
+    }
+    .lungsdust {
+        height: 45vh;
+        width: 120vh;
+    }
+    .imglungs {
+        height: 45vh;
+        width: 65vh;
+    }
+    .curedust {
+        height: 30vh;
+        width: 120vh;
+    }
+    .developers {
+        height: 30vh;
+        width: 65vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .logobox {
+        width: auto;
+        height: auto;
+        float: none;
+    }
+    .printdust {
+        float: none;
+        height: auto;
+        width: auto;
+    }
+    .lungsdust {
+        width: auto;
+        height: auto;
+        float: none;
+    }
+    .imglungs {
+        width: auto;
+        height: 350px;
+        float: none;
+    }
+    .lungsf{
+        float:left;
+        width:130px;
+        height:250px;
+    }
+    .lungsu{
+        
+        width:130px;
+        height:250px;
+    }
+    .curedust {
+        margin-left:5px;
+        width: auto;
+        height: auto;
+        float: none;
+    }
+    .developers {
+        width: auto;
+        height: auto;
+        float: none;
+    }
+}
+
+div {
+    display: inline-block;
+}
+
+.amount {
+    font-size: 30px;
+}

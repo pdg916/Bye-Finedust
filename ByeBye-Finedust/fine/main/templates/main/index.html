@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> {% load staticfiles %}
+    <title>ByeBye Finedust</title>
+    <link rel="shortcut icon" href="{% static 'favicon/myicon.ico' %}">
+    <link rel="icon" href="{% static 'favicon/myicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/index-style.css' %}">
+    <link rel="script" href="{% static 'javascript/index-script.js' %}">
+</head>
+
+<body>
+    <div class="logobox">
+        <img class="logo1" src="{% static 'photo/newlogo.JPG' %}">
+    </div>
+    <div class="printdust">
+        <button type="button" onclick="citychecked();" style="display:inline-block">도시 선택</button>
+        <button type="button" onclick="citydetailchecked();" style="display:inline-block">세부 선택</button>
+        <button type="button" onclick="outtimechecked();" style="display:inline-block">시간 선택</button>
+        <form class="form">
+            <select id="city">
+                <option selected="selected">선택안함 ▽</option>
+                <option id="incheon">인천광역시</option>
+                <option id="seoul">서울특별시</option>
+                <option id="kyeonggi">경기도</option>
+                <option id="gangwon">강원도</option>
+                <option id="chungnam">충청남도</option>
+                <option id="sejeong">세종특별자치시</option>
+                <option id="daejeon">대전광역시</option>
+                <option id="chungbuk">충청북도</option>
+                <option id="kyeongbuk">경상북도</option>
+                <option id="daegu">대구광역시</option>
+                <option id="jeonbuk">전라북도</option>
+                <option id="kyungnam">경상남도</option>
+                <option id="jeonnam">전라남도</option>
+                <option id="gwangju">광주광역시</option>
+                <option id="ulsan">울산광역시</option>
+                <option id="jeju">제주특별자치도</option>
+                <option id="dokdo">울릉도/독도</option>
+            </select>
+            <select id="incheon-select" style="display:none">
+                <option>검단</option>
+                <option>계산</option>
+                <option>고잔</option>
+                <option>구월동</option>
+                <option>길상</option>
+                <option>논현</option>
+                <option>동춘</option>
+                <option>부평</option>
+                <option>삼산</option>
+                <option>석남</option>
+                <option>송도</option>
+                <option>송림</option>
+                <option>송해</option>
+                <option>숭의</option>
+                <option>신흥</option>
+                <option>연희</option>
+                <option>운서</option>
+                <option>원당</option>
+                <option>청라</option>
+            </select>
+            <select id="seoul-select" style="display:none">
+                <option>강남구</option>
+                <option>강동구</option>
+                <option>강북구</option>
+                <option>강서구</option>
+                <option>관악구</option>
+                <option>광진구</option>
+                <option>구로구</option>
+                <option>금천구</option>
+                <option>노원구</option>
+                <option>도봉구</option>
+                <option>동대문구</option>
+                <option>동작구</option>
+                <option>마포구</option>
+                <option>서대문구</option>
+                <option>서초구</option>
+                <option>성동구</option>
+                <option>성북구</option>
+                <option>송파구</option>
+                <option>양천구</option>
+                <option>영등포구</option>
+                <option>용산구</option>
+                <option>은평구</option>
+                <option>종로구</option>
+                <option>중구</option>
+                <option>중랑구</option>
+            </select>
+            <select id="kyeonggi-select" style="display:none">
+                <option>가평</option>
+                <option>경안동</option>
+                <option>고색동</option>
+                <option>고읍</option>
+                <option>고잔동</option>
+                <option>고천동</option>
+                <option>고촌읍</option>
+                <option>과천동</option>
+                <option>광교동</option>
+                <option>교문동</option>
+                <option>금곡동</option>
+                <option>금촌동</option>
+                <option>기흥</option>
+                <option>김량장동</option>
+                <option>남양읍</option>
+                <option>내동</option>
+                <option>단대동</option>
+                <option>당동</option>
+                <option>대부동</option>
+                <option>대야동</option>
+                <option>동구동</option>
+                <option>동탄</option>
+                <option>모현읍</option>
+                <option>백석읍</option>
+                <option>백암면</option>
+                <option>별내동</option>
+                <option>별양동</option>
+                <option>보산동</option>
+                <option>복정동</option>
+                <option>본오동</option>
+                <option>봉산동</option>
+                <option>부곡3동</option>
+                <option>부곡동1</option>
+                <option>부림동</option>
+                <option>비전동</option>
+                <option>사우동</option>
+                <option>산본동</option>
+                <option>상대원동</option>
+                <option>선단동</option>
+                <option>소사본동</option>
+                <option>소하동</option>
+                <option>송북동</option>
+                <option>수내동</option>
+                <option>수지</option>
+                <option>시화산단</option>
+                <option>식사동</option>
+                <option>신원동</option>
+                <option>신장동</option>
+                <option>신풍동</option>
+                <option>안양2동</option>
+                <option>안양6동</option>
+                <option>안중</option>
+                <option>양평</option>
+                <option>여주</option>
+                <option>연천</option>
+                <option>영통동</option>
+                <option>오남읍</option>
+                <option>오산동</option>
+                <option>오정동</option>
+                <option>우정읍</option>
+                <option>운정</option>
+                <option>운중동</option>
+                <option>원곡동</option>
+                <option>원시동</option>
+                <option>의정부1동</option>
+                <option>의정부동</option>
+                <option>이동읍</option>
+                <option>인계동</option>
+                <option>일동면</option>
+                <option>장호원읍</option>
+                <option>정왕동</option>
+                <option>정자동</option>
+                <option>주엽동</option>
+                <option>중2동</option>
+                <option>창전동</option>
+                <option>천천동</option>
+                <option>철산동</option>
+                <option>청계동</option>
+                <option>통진읍</option>
+                <option>평택항</option>
+                <option>행신동</option>
+                <option>향남읍</option>
+                <option>호계동</option>
+                <option>호매실동</option>
+                <option>호수동</option>
+                <option>화도읍</option>
+            </select>
+            <select id="gangwon-select" style="display:none">
+                <option>남양동1</option>
+                <option>명륜동(강원)</option>
+                <option>문막읍</option>
+                <option>상리</option>
+                <option>석사동</option>
+                <option>속초시(금호동)</option>
+                <option>양구읍</option>
+                <option>양양군</option>
+                <option>영월읍</option>
+                <option>옥천동</option>
+                <option>인제군</option>
+                <option>정선읍</option>
+                <option>중앙동(원주)</option>
+                <option>중앙로</option>
+                <option>천곡동</option>
+                <option>철원군</option>
+                <option>태백시</option>
+                <option>평창읍</option>
+                <option>홍천읍</option>
+                <option>화천군</option>
+                <option>횡성군</option>
+            </select>
+            <select id="chungnam-select" style="display:none">
+                <option>공주</option>
+                <option>금산읍</option>
+                <option>내포</option>
+                <option>논산</option>
+                <option>당진시청사</option>
+                <option>대산리</option>
+                <option>대천2동</option>
+                <option>도고면</option>
+                <option>독곶리</option>
+                <option>동문동</option>
+                <option>둔포면</option>
+                <option>모종동</option>
+                <option>배방읍</option>
+                <option>백석동</option>
+                <option>부여읍</option>
+                <option>서면</option>
+                <option>서천읍</option>
+                <option>성거읍</option>
+                <option>성황동</option>
+                <option>송산면</option>
+                <option>엄사면</option>
+                <option>예산군</option>
+                <option>이원면</option>
+                <option>인주면</option>
+                <option>장항읍</option>
+                <option>주교면</option>
+                <option>청양읍</option>
+                <option>태안읍</option>
+                <option>홍성읍</option>
+            </select>
+            <select id="sejeong-select" style="display:none">
+                <option>부강면</option>
+                <option>신흥동</option>
+                <option>아름동</option>
+                <option>한솔동</option>
+
+            </select>
+            <select id="daejeon-select" style="display:none">
+                <option>구성동</option>
+                <option>노은동</option>
+                <option>대성동</option>
+                <option>둔산동</option>
+                <option>문창동</option>
+                <option>문평동</option>
+                <option>상대동(대전)</option>
+                <option>성남동1</option>
+                <option>읍내동</option>
+                <option>정림동</option>
+
+            </select>
+            <select id="chungbuk-select" style="display:none">
+                <option>괴산읍</option>
+                <option>매포읍</option>
+                <option>문화동</option>
+                <option>보은읍</option>
+                <option>사천동</option>
+                <option>산남동</option>
+                <option>송정동(봉명동)</option>
+                <option>영동읍</option>
+                <option>오송읍</option>
+                <option>오창읍</option>
+                <option>옥천읍</option>
+                <option>용암동</option>
+                <option>음성읍</option>
+                <option>장락동</option>
+                <option>증평읍</option>
+                <option>진천읍</option>
+                <option>칠금동</option>
+                <option>호암동</option>
+            </select>
+            <select id="kyeongbuk-select" style="display:none">
+                <option>3공단</option>
+                <option>4공단</option>
+                <option>공단동</option>
+                <option>대광동</option>
+                <option>대도동</option>
+                <option>대송면</option>
+                <option>명륜동</option>
+                <option>문당동</option>
+                <option>보덕동</option>
+                <option>상주시</option>
+                <option>석포면</option>
+                <option>성건동</option>
+                <option>송도동</option>
+                <option>안강읍</option>
+                <option>영천시</option>
+                <option>오천읍</option>
+                <option>외동읍</option>
+                <option>울릉읍</option>
+                <option>울진군</option>
+                <option>원평동</option>
+                <option>장량동</option>
+                <option>장흥동</option>
+                <option>중방동</option>
+                <option>청림동</option>
+                <option>칠곡군</option>
+                <option>형곡동</option>
+                <option>휴천동</option>
+            </select>
+            <select id="daegu-select" style="display:none">
+                <option>노원동</option>
+                <option>다사읍</option>
+                <option>대명동</option>
+                <option>만촌동</option>
+                <option>서호동</option>
+                <option>수창동</option>
+                <option>시지동</option>
+                <option>신암동</option>
+                <option>이현동</option>
+                <option>지산동</option>
+                <option>진천동</option>
+                <option>태전동</option>
+                <option>현풍읍</option>
+                <option>호림동</option>
+            </select>
+            <select id="jeonbuk-select" style="display:none">
+                <option>개정동</option>
+                <option>고산면</option>
+                <option>고창읍</option>
+                <option>남중동</option>
+                <option>모현동</option>
+                <option>무주읍</option>
+                <option>부안읍</option>
+                <option>삼천동</option>
+                <option>소룡동</option>
+                <option>송천동</option>
+                <option>순창읍</option>
+                <option>신태인</option>
+                <option>신풍동(군산)</option>
+                <option>심원면</option>
+                <option>연지동</option>
+                <option>요촌동</option>
+                <option>임실읍</option>
+                <option>장수읍</option>
+                <option>죽항동</option>
+                <option>중앙동(전주)</option>
+                <option>진안읍</option>
+                <option>팔복동</option>
+                <option>팔봉동</option>
+            </select>
+            <select id="kyungnam-select" style="display:none">
+                <option>가야읍</option>
+                <option>거창읍</option>
+                <option>경화동</option>
+                <option>고성읍</option>
+                <option>남해읍</option>
+                <option>내일동</option>
+                <option>대안동</option>
+                <option>동상동</option>
+                <option>명서동</option>
+                <option>무전동</option>
+                <option>봉암동</option>
+                <option>북부동</option>
+                <option>사천읍</option>
+                <option>사파동</option>
+                <option>삼방동</option>
+                <option>상대동</option>
+                <option>상봉동</option>
+                <option>성주동</option>
+                <option>아주동</option>
+                <option>용지동</option>
+                <option>웅남동</option>
+                <option>웅상읍</option>
+                <option>장유동</option>
+                <option>하동읍</option>
+                <option>함양읍</option>
+                <option>회원동</option>
+            </select>
+            <select id="jeonnam-select" style="display:none">
+                <option>강진읍</option>
+                <option>고흥읍</option>
+                <option>곡성읍</option>
+                <option>광양읍</option>
+                <option>구례읍</option>
+                <option>나불리</option>
+                <option>담양읍</option>
+                <option>덕충동</option>
+                <option>무안읍</option>
+                <option>문수동</option>
+                <option>벌교읍</option>
+                <option>부흥동</option>
+                <option>빛가람동</option>
+                <option>삼일동</option>
+                <option>서강동</option>
+                <option>순천만</option>
+                <option>신대</option>
+                <option>신안군</option>
+                <option>신지면</option>
+                <option>여천동(여수)</option>
+                <option>연향동</option>
+                <option>영광읍</option>
+                <option>용당동</option>
+                <option>월내동</option>
+                <option>율촌면</option>
+                <option>장성읍</option>
+                <option>장천동</option>
+                <option>장흥읍</option>
+                <option>중동</option>
+                <option>진도읍</option>
+                <option>진상면</option>
+                <option>태인동</option>
+                <option>함평읍</option>
+                <option>해남읍</option>
+                <option>호두리</option>
+                <option>화순읍</option>
+                <option>화양면</option>
+            </select>
+            <select id="gwangju-select" style="display:none">
+                <option>건국동</option>
+                <option>농성동</option>
+                <option>두암동</option>
+                <option>서석동</option>
+                <option>송정1동</option>
+                <option>오선동</option>
+                <option>주월동</option>
+            </select>
+            <select id="ulsan-select" style="display:none">
+                <option>농소동</option>
+                <option>대송동</option>
+                <option>덕신리</option>
+                <option>무거동</option>
+                <option>부곡동(울산)</option>
+                <option>삼남면</option>
+                <option>삼산동</option>
+                <option>상남리</option>
+                <option>성남동</option>
+                <option>신정동</option>
+                <option>야음동</option>
+                <option>약사동</option>
+                <option>여천동(울산)</option>
+                <option>전하동</option>
+                <option>화산리</option>
+                <option>효문동</option>
+            </select>
+            <select id="jeju-select" style="display:none">
+                <option>대정읍</option>
+                <option>동홍동</option>
+                <option>성산읍</option>
+                <option>연동</option>
+                <option>이도동</option>
+            </select>
+            <select id="dokdo-select" style="display:none">
+                <option>울릉읍</option>
+            </select>
+            <input type="number" id="outtime" min="1" max="24">
+        </form>
+        <div class="checkdust">
+            <p id="finedust">
+            </p>
+            <p id="ultrafinedust">
+                먼저 지역을 선택해주시기 바랍니다.
+            </p>
+        </div>
+    </div>
+    <div class="lungsdust">
+        <p id="checkedcity">
+
+        </p>
+        <p id="lungdust">
+            먼저 지역을 선택해주시기 바랍니다.
+        </p>
+        <p id="lungdusttime">
+
+        </p>
+        <p id="feed">
+
+        </p>
+    </div>
+    <div class="imglungs">
+        <p class="a">    
+            <span style="text-align:left;"><strong>내가 마신 미세먼지/초미세먼지 양 한눈에보기</strong></span>
+        </p>
+        <div class="lungsf"><p class="drinkf">
+            
+            </p>
+        </div>
+        <div class="lungsu">
+        <p class="drinku">
+            
+            </p>
+        </div>
+    </div>
+    <div class="developers">
+        <div class="de">
+            <h2>Developers</h2>
+            <ul>
+                <li>박두고: 팀원분들과 함께 다양한 개발을 하며 정말 많은 것을 배웠습니다.</li>
+                <li>남경민: 웹 제작에 참여할 수 있는 뜻깊은 순간들이었습니다.</li>
+                <li>지환: 정말 좋은 경험이었습니다!</li>
+            </ul>
+        </div>
+        <div class="helper">
+            <h2>Helper[Mentor]</h2>
+            <li>이주영멘토님: 다들 실력이 뛰어나셔서 도움이 되는 멘토였는지 잘 모르겠네요... 개발하느라 고생 많으셨습니다!</li>
+        </div>
+        <footer class="footer">
+            <p class="copyright">
+                <h5>Copyright &copy; 2019.깜냥깜냥.All rights Reserved</h5>
+            </p>
+        </footer>
+    </div>
+    <div class="curedust">
+        <p class="cureyou">
+            <h3>미세먼지를 마신 당신에게...</h3>
+        </p>
+        <ul>
+            <li>
+                <a href="https://www.gwangju.go.kr/contentsView.do?menuId=gwangju0805010600" target="_blank" class="line">
+                    <strong>미세먼지 대처법:</strong>
+                </a>외출은 가급적 자제하기, 외출 시 보건용 마스크 착용하기, 외출 후 깨끗이 씻기...</li>
+            <li>
+                <a href="https://www.bbc.com/korean/news-43524873" target="_blank" class="line">
+                    <strong>미세먼지의 위험성:</strong>
+                </a> 호흡기와 직접적 연관이 없는 간, 비장, 중추 신경계, 뇌, 심지어 생식 기관까지 손상할 수 있는 것으로 밝혀졌다...</li>
+            <li>
+                <a href="http://prod.danawa.com/list/?cate=17319274&15main_17_03" target="_blank" class="line">
+                    <strong>[가격비교]미세먼지마스크 구매하기:</strong>
+                </a> 700여 종이 넘는 미세먼지 마스크...</li>
+            <li>
+                <a href="https://bluesky.seoul.go.kr/finedust/common-sense/page/5?article=1855" target="_blank" class="line">
+                    <strong>미세먼지에 좋은 음식:</strong>
+                </a> 녹차, 고등어, 미나리, 미역, 마늘, 귤, 브로콜리, 배</li>
+            <li>
+                <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=19102775&memberNo=4836725&vType=VERTICAL" target="_blank" class="line">
+                    <strong>미세먼지 정화 식물:</strong>
+                </a> 스투키, 스킨답서스, 관음죽, 개운죽, 산세베리아, 수염틸란드시아</li>
+            <li>
+                <a href="http://www.me.go.kr/cleanair/index.do" target="_blank" class="line">
+                    <strong>환경부:</strong>
+                </a> 정부가 추진하고 있는 미세먼지에 관한 것들</li>
+        </ul>
+    </div>
+    <script src="{% static 'javascript/index-script.js' %}"></script>
+</body>
+
+</html>
